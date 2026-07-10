@@ -1,5 +1,42 @@
 
-# Comando de GIT
+<center>
+
+# 🚀 Guía de Comandos Git y GitHub
+
+</center>
+<br>
+<br>
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  details[open] {
+    animation: fadeIn 1s ease-out;
+  }
+</style>
+
+<details>
+  <summary style="display: flex; align-items: center; cursor: pointer;">
+    <h1 style="margin: 0; padding-left: 10px;">Tabla de Contenido</h1>
+  </summary>
+
+## - [1. Comandos básicos de navegación](#1-comandos-básicos-de-navegación)
+## - [2. Configuración básica de GIT](#2-configuración-básica-de-git)
+## - [3. Commit](#3-commit)
+## - [4. Versiones y restauraciones](#4-versiones-y-restauraciones)
+## - [5. Atajos y configuraciones](#5-atajos-y-configuraciones)
+## - [6. Gestión de ramas](#6-gestión-de-ramas)
+## - [7. Almacén temporal (Stash)](#7-almacén-temporal-stash)
+## - [8. GITHUB](#8-github)
+## - [9. GITHUB](#9-github)
+
+</details>
+<br>
+<br>
+
+
+# 1. Comandos básicos de navegación
 
 ## Versión de GIT
 
@@ -28,7 +65,6 @@ git -h
 ```bash
 ls
 ```
-
 ## Navegar entre ficheros
 
 ### Permite navegar hacia un directorio específico escribiendo su nombre o la ruta donde deseas ir.
@@ -48,7 +84,6 @@ cd ..
 ```bash
 pwd
 ```
-
 ## Crear carpetas
 
 ### Por medio de comando se crea carpetas se debe escribir **mkdir** donde se guardara el archivo y entre comillas despues escribir el nombre de la carpeta.
@@ -73,7 +108,7 @@ rm -rf "[nombre]"
 clear
 ```
 
-# Configuración basica de GIT
+# 2. Configuración básica de GIT
 
 ## Configuración de Identidad Global
 
@@ -82,7 +117,6 @@ clear
 ```bash
 git config --global
 ```
-
 ## Configuración de Identidad de Usuario
 
 ### Esta sección te ayudará a configurar tu nombre de usuario, el cual quedará registrado en cada "commit" que realices en tus proyectos.
@@ -90,7 +124,6 @@ git config --global
 ```bash
 git config --global user.name "[nombre]"
 ```
-
 ## Configuración de Correo Electrónico
 
 ### Define el correo electrónico que se asociará a tu usuario. Es vital para que plataformas como GitHub o GitLab vinculen tus cambios con tu cuenta personal y envíen las notificaciones correspondientes.
@@ -98,41 +131,42 @@ git config --global user.name "[nombre]"
 ```bash
 git config --global user.email "[correo]"
 ```
-
 ## Inicializar el repositorio
 ### Crea el entorno de control de versiones.
 
 ```bash
 git init
 ```
-
 ## Renombrar Rama
 ### Este comando es específico para cambiar el nombre de tu rama. Es el paso necesario para alinearte con el estándar actual de los repositorios.
 
 ```bash
 git branch -m [Nombre]
 ```
-
 ## El Monitor de Estado
 ### Es el comando que debes ejecutar antes de cualquier acción importante. Te dice qué está pasando en tu carpeta de trabajo y que tiene almacenado GIT.
 ```bash
 git status
 ```
-
 ## Preparar para Guardar
 ### Este comando mueve tus archivos desde la carpeta de trabajo al "área de preparación" (staging area), dejándolos listos para ser guardados definitivamente en git, solo es colocar el nombre del archivo a guardar.
-
 
 ```bash
 git add [Nombre_de_archivo]
 ```
-
 ### Para guardar todos los archivos se necesita el comando
 
 ```bash
 git add .
 ```
-# Commit
+## Eliminación definitiva del historial y control de versiones de Git
+### Se utiliza para destruir el repositorio local de Git asociado a un directorio. Al ejecutarlo, se elimina de forma irreversible el directorio oculto .git.
+```bash
+rm -rf .git
+```
+
+# 3. Commit
+
 ## Guardar el Cambio
 ### Este comando es el que oficializa el registro de los archivos preparados en tu historial. Es como tomar una "foto" permanente de tus cambios.
 
@@ -178,6 +212,7 @@ git log --graph --decorate --all --oneline
 ```bash
 git reflog
 ```
+# 4. Versiones y restauraciones
 
 ## Versiones anteriores checkout
 ### Permite extraer versiones específicas de archivos o estados del proyecto desde el historial. Es ideal para recuperar un archivo antiguo sin alterar el flujo actual de trabajo, solo se necesita tener el código único (hash) que se adquiere con [log](#lista-de-cambios).
@@ -204,8 +239,7 @@ git reset --hard HEAD
 git reset --hard [Código]
 ```
 
-### Atajos Personalizados
-
+# 5. Atajos y configuraciones avanzadas
 
 ## Atajos personalizados con alias
 ### Permite crear comandos abreviados para tus instrucciones más frecuentes, optimizando tu flujo de trabajo al convertir comandos largos en simples palabras clave.
@@ -223,8 +257,6 @@ git config --global alias.lista "config --global --list"
 git config --global alias.eliminarAlias "config --global --remove-section alias"
 git config --global alias.modificarAlias "config --global --edit"
 ```
-
-
 ## Eliminar atajos personalizados
 
 ### Eliminar todos los alias que tengamos
@@ -246,7 +278,6 @@ git config --global --edit
 ```bash
 git diff
 ```
-
 ## Marcadores de Versión
 ### Permiten asignar nombres o etiquetas permanentes a puntos específicos del historial (como versiones v1.0, v2.0 o hitos importantes). A diferencia de los commits, las etiquetas son puntos de referencia fijos e inamovibles.
 ```bash
@@ -259,14 +290,14 @@ git tag [Nombre]
 git checkout tags/[Nombre_de_tags]
 ```
 
-# Gestion de ramas
+# 6. Gestión de ramas
+
 ## Listar ramas existentes
 ### Comando para conocer todas las ramas que tenemos en el sistema
 
 ```bash
 git branch
 ```
-
 ## Crear una rama nueva
 ### Se crea una rama a partir del commit en el que te encuentes.
 
@@ -277,7 +308,6 @@ git branch [Nombre-de-la-nueva-rama]
 ```bash
 git switch -c [Nombre-de-la-nueva-rama]
 ```
-
 ## Renombrar la rama actual
 ### Para renombrar la rama debemos estar en ella y luego digitar el cóidigo
 
@@ -304,6 +334,8 @@ git switch [Nombre-rama]
 ```bash
 git merge [Rama-donde-traeras-los-cambios]
 ```
+
+# 7. El almacén temporal (Stash)
 
 ## El almacén temporal
 ### Permite guardar tus cambios locales sin hacer un commit, dejando tu área de trabajo limpia. Ideal para cambiar de rama rápidamente y retomar el trabajo después.
@@ -332,13 +364,13 @@ git stash list
 git stash drop
 ```
 
-# GITHUB
+# 8. Configuración de SSH
 ## Verificación Llaves SSH Locales
 ### Es esencial para verificar qué llaves criptográficas (públicas y privadas) tienes generadas y validar que los permisos de seguridad de tus credenciales sean correctos.
 ```bash
 ls -al ~/.ssh
 ```
-## Eliminacion de clavves SSH
+## Eliminacion de claves SSH
 ### Comando de mantenimiento diseñado para eliminar de forma permanente todas las llaves SSH y configuraciones de host almacenadas en el sistema.
 ```bash
 rm -rf ~/.ssh/*
@@ -388,7 +420,6 @@ Host *.github.com
   IdentityFile ~/.ssh/[Nombre de fichero de clave publica/privada que inicia con id]
 EOF
 ```
-
 ## Añadir Llave al Agente SSH
 ### La informacion paso a paso esta en el [enlace](https://docs.github.com/es/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent?platform=windows)
 ### En linux
@@ -413,12 +444,16 @@ cat ~/.ssh/[Nombre de fichero de clave publica/privada que inicia con id].pub
 ```bash
 ssh -T git@github.com
 ```
+
+# 9. GITHUB
+
 ## Vincular un Repositorio Local con un Servidor Remoto
 ### Es el comando que vincula tu repositorio local con un servidor remoto (como GitHub). Establece una ruta para que puedas subir (push) y bajar (pull) tu código de la nube, guardando esa dirección bajo el nombre por defecto "origin".
 
 ```bash
 git remote add origin [ENLACE_DE_GITHUB]
 ``` 
+
 ## Vincular y Subir Cambios por Primera Vez
 ### Es el comando que sube tus archivos locales por primera vez a la rama principal (main) del servidor remoto (origin) y crea un enlace permanente entre ambas ramas.
 ```bash
@@ -441,7 +476,6 @@ git fetch
 ```bash
 git pull
 ``` 
-
 ### Si es la primera vez utilizando este código puede enviarte un error y debes escoger alguno de estos codigo
 ### El recomendado. Configura Git para que, al usar git pull, combine el código remoto con el tuyo mediante una fusión tradicional (merge). Si los historiales han tomado caminos diferentes, creará automáticamente un commit especial de fusión (merge commit) para unirlos.
 ```bash
@@ -455,10 +489,6 @@ git config pull.rebase true
 ```bash
 git config pull.ff only
 ``` 
-
-
-
-
 ## Forzar la Subida de Cambios al Servidor Remoto
 ### Es el comando que sube de forma obligatoria tus archivos locales a la rama principal (main) en la nube, sobrescribiendo por completo lo que haya en el servidor.
 ```bash
@@ -470,55 +500,11 @@ git push -u origin main --force
 ```bash
 git clone [URL de repositorio]
 ```
+<br>
+<br>
+<center>
 
-
-
-
-
-
-
-
-
-
-
-
-----------------------------------------------------------------
-## Clonar repositorios
-### Para clonar el repositorio se necesita tener la ruta exacta con el comando [pwd](#muestra-la-ruta-absoluta-la-dirección-completa-del-directorio-en-el-que-te-encuentras-posicionado-actualmente) donde se guardara el archivo  y el enlace del repositorio, al final escribes el nombre de la carpeta donde guardaras el repositorio.
-```bash
-git clone [URL de repositorio] [Ruta a guardar]/[Nombre de la nueva carpeta]
-```
-## Concetar con repositorio de forma remota
-### Permite vincular tu carpeta local con un repositorio en GitHub. Es el puente necesario para que tu computadora pueda enviar y recibir código del servidor remoto.
-```bash
-git remote add origin [Enlace_GITHUB]
-```
-## Definición de Rama Principal
-### Establece o renombra tu rama actual como main. Es el estándar actual en Git para identificar la rama principal donde reside el código de tu proyecto, asegurando que tu entorno local coincida con la configuración de tu repositorio en GitHub.
-```bash
-git branch -M main
-```
-## Sincronización Forzada
-### Es el comando definitivo para enviar tus cambios locales al servidor remoto, sobrescribiendo cualquier contenido previo en la rama main de GitHub. Se utiliza cuando deseas que tu versión local sea la única y absoluta en el repositorio, ignorando cualquier conflicto de historial.
-
-```bash
-git push -u origin main --force
-```
-# Comandos para subir archivo y "Rempazarlos"
-## Comando para subir  archivos a repositorio de github y que solo quede este archivo sin ningun comic solo el que subes.
-
-```bash
-git init
-git remote add origin [ENLACE_DE_GITHUB]
-git branch -M main
-git add .
-git commit -m "[Nombre]"
-git push -u origin main --force
-```
-## Eliminación definitiva del historial y control de versiones de Git
-### Se utiliza para destruir el repositorio local de Git asociado a un directorio. Al ejecutarlo, se elimina de forma irreversible el directorio oculto .git.
-```bash
-rm -rf .git
-```
-
-
+# 💡 Este repositorio es una **Base de conocimiento** personal en constante evolución. 
+## Si encuentras un error o tienes un comando que consideres útil para optimizar el flujo de trabajo, no dudes en abrir un *Issue* o enviarme una sugerencia. 
+# ¡El aprendizaje colaborativo es la base de la ingeniería! 🤝🛠️
+</center>
