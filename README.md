@@ -6,16 +6,6 @@
 </center>
 <br>
 <br>
-<style>
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  details[open] {
-    animation: fadeIn 1s ease-out;
-  }
-</style>
-
 <details>
   <summary style="display: flex; align-items: center; cursor: pointer;">
     <h1 style="margin: 0; padding-left: 10px;">Tabla de Contenido</h1>
